@@ -1,14 +1,16 @@
 # -*- coding: utf-8- *-
 
+import os
 from app import create_app
-from config import Config, DevelopmentConfig
+from config import Config, DevelopmentConfig, ProductionConfig
 
 def select_config_class(env):
 
-	config_class = Config
 	if env == "development":
-		config_class = DevelopmentConfig
-	return config_class
+		return DevelopmentConfig
+	elif env == "production":
+		return ProductionConfig
+	return Config
 
 config_class = select_config_class(os.getenv("FLASK_ENV"))
 
