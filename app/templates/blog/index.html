@@ -3,5 +3,17 @@
 {% block title %}CodeTutor{% endblock %}
 
 {% block content %}
-	<h1>This is Fun!</h1>
+	{% if tutorials.items %}
+		{% for tutorial in tutorials.items %}
+			{{ tutorial.title }}
+		{% endfor %}
+	{% else %}
+            <h1>No have tutorials</h1>
+	{% endif %}
+	{% if tutorials.has_prev %}
+		<a href="{{ url_for('blog.index', page=tutorials.prev_num) }}">Newer tutorials</a>
+	{% endif %}
+	{% if tutorials.has_next %}
+		<a href="{{ url_for('blog.index', page=tutorials.next_num) }}">Older tutorials</a>
+	{% endif %}
 {% endblock %}

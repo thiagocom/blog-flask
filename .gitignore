@@ -1,3 +1,6 @@
 .flaskenv
 .venv/
 __pycache__/
+dev.db
+debug.log
+migrations/

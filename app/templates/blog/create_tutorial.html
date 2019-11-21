@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% from "macros.html" import create_field %}
+
+{% block title %}Criar um post{% endblock %}
+
+{% block content %}
+	<form method="post" action="" enctype="multipart/form-data" novalidate>
+		{{ form.hidden_tag() }}
+		{{ create_field(form.title, "Title") }}
+		{{ create_field(form.file )}}
+		{{ form.submit(class_="btn btn-outline-success btn-block") }}
+	</form>
+{% endblock %}
